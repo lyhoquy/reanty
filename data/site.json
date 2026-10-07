@@ -1,0 +1,88 @@
+{
+  "brand": "Reanty.",
+  "tagline": "Real Estate Agency",
+  "hero": {
+    "headline": "Find the best Real Estate in your country.",
+    "subtext": "With over 1 million homes for sale on the website, Reanty can match you with the right house.",
+    "revenue": "$7,454.21"
+  },
+  "guides": [
+    {
+      "title": "Seller Guides",
+      "description": "Get professionally written content that attracts qualified buyers."
+    },
+    {
+      "title": "Buyer Guides",
+      "description": "Nurture valuable leads into customers and repeat clients."
+    },
+    {
+      "title": "Renter Guides",
+      "description": "Find the right rental and move in with confidence."
+    }
+  ],
+  "services": [
+    "Bedrooms",
+    "Swimming pool",
+    "Listing content",
+    "Smart home",
+    "Library area",
+    "Responsive support"
+  ],
+  "properties": [
+    {
+      "name": "The Stokes Apartment",
+      "price": "$232,120",
+      "location": "Cleveland, OH",
+      "type": "Apartment"
+    },
+    {
+      "name": "Lakeview Villa",
+      "price": "$415,000",
+      "location": "Austin, TX",
+      "type": "Villa"
+    },
+    {
+      "name": "Maple Ridge Land",
+      "price": "$98,500",
+      "location": "Denver, CO",
+      "type": "Land"
+    }
+  ],
+  "unit": {
+    "number": "9A",
+    "price": "$4,000 / month",
+    "address": "242 Metric Way",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "area": "500 sqft"
+  },
+  "testimonial": {
+    "quote": "Reanty found me a flat close to campus within a week. The process was clear, quick and surprisingly personal.",
+    "name": "Linh Tran",
+    "role": "Graduate Student",
+    "rating": 5
+  },
+  "cities": ["San Francisco, California", "Washington DC", "Chicago"],
+  "blog": [
+    {
+      "title": "How to rent a home very easily",
+      "category": "Rentals",
+      "date": "2026-09-28"
+    },
+    {
+      "title": "5 things to check before buying",
+      "category": "Buying",
+      "date": "2026-09-15"
+    },
+    {
+      "title": "Staging your home for a faster sale",
+      "category": "Selling",
+      "date": "2026-09-02"
+    }
+  ],
+  "contact": {
+    "email": "hello@reanty.com",
+    "phone": "(123) 456-7890",
+    "address": "1112 A Market St, Suite B22, Charlottesville, CA 45565"
+  }
+}

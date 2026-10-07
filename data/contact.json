@@ -1,0 +1,9 @@
+{
+  "ok": true,
+  "message": "Contact form endpoint ready for backend integration.",
+  "samplePayload": {
+    "name": "Nguyen Van A",
+    "email": "vana@example.com",
+    "message": "I'd like to schedule a viewing for the Stokes Apartment."
+  }
+}

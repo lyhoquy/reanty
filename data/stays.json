@@ -1,0 +1,31 @@
+{
+  "source": "testsample01.fig",
+  "brand": "Reanty.",
+  "updatedAt": "2026-10-06",
+  "properties": [
+    {
+      "id": "stokes-apartment",
+      "name": "The Stokes Apartment",
+      "location": "Cleveland, OH",
+      "price": "$232,120",
+      "type": "Apartment",
+      "status": "For Sale"
+    },
+    {
+      "id": "lakeview-villa",
+      "name": "Lakeview Villa",
+      "location": "Austin, TX",
+      "price": "$415,000",
+      "type": "Villa",
+      "status": "For Sale"
+    },
+    {
+      "id": "maple-ridge-land",
+      "name": "Maple Ridge Land",
+      "location": "Denver, CO",
+      "price": "$98,500",
+      "type": "Land",
+      "status": "For Sale"
+    }
+  ]
+}
