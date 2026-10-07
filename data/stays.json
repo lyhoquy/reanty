@@ -1,31 +1,52 @@
 {
   "source": "testsample01.fig",
   "brand": "Reanty.",
-  "updatedAt": "2026-10-06",
+  "updatedAt": "2026-10-07",
+  "featured": {
+    "unit": "9A",
+    "price": "$4,000",
+    "period": "/ month",
+    "address": "242 Metric Way",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "area": "500 sqft"
+  },
   "properties": [
     {
-      "id": "stokes-apartment",
-      "name": "The Stokes Apartment",
+      "id": 1,
+      "title": "The Stokes Apartment",
+      "category": "Apartment",
       "location": "Cleveland, OH",
       "price": "$232,120",
-      "type": "Apartment",
-      "status": "For Sale"
+      "beds": 2,
+      "baths": 2,
+      "sqft": "1,240 sqft",
+      "status": "For Sale",
+      "image": "./assets/house-card.jpg"
     },
     {
-      "id": "lakeview-villa",
-      "name": "Lakeview Villa",
+      "id": 2,
+      "title": "Lakeview Villa",
+      "category": "Villa",
       "location": "Austin, TX",
       "price": "$415,000",
-      "type": "Villa",
-      "status": "For Sale"
+      "beds": 4,
+      "baths": 3,
+      "sqft": "2,100 sqft",
+      "status": "For Sale",
+      "image": "./assets/house-hero.jpg"
     },
     {
-      "id": "maple-ridge-land",
-      "name": "Maple Ridge Land",
+      "id": 3,
+      "title": "Maple Ridge Land",
+      "category": "Land",
       "location": "Denver, CO",
       "price": "$98,500",
-      "type": "Land",
-      "status": "For Sale"
+      "beds": 0,
+      "baths": 0,
+      "sqft": "0.8 acres",
+      "status": "For Sale",
+      "image": "./assets/house-card.jpg"
     }
   ]
 }

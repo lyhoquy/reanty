@@ -1,88 +1,162 @@
 {
-  "brand": "Reanty.",
-  "tagline": "Real Estate Agency",
+  "brand": {
+    "name": "Reanty.",
+    "tagline": "Real Estate Agency"
+  },
+  "contactInfo": {
+    "email": "info@webmail.com",
+    "supportEmail": "hello@reanty.com",
+    "phone": "(123) 456-7890",
+    "address": "547 ns tower St. anglo City, USA",
+    "headOffice": "1112 A Market St, Suite B22, Charlottesville, CA 45565"
+  },
+  "socialLinks": [
+    { "name": "Facebook", "url": "https://facebook.com/reanty", "icon": "f" },
+    { "name": "Twitter", "url": "https://twitter.com/reanty", "icon": "t" },
+    { "name": "Instagram", "url": "https://instagram.com/reanty", "icon": "◎" },
+    { "name": "YouTube", "url": "https://youtube.com/@reanty", "icon": "▶" },
+    { "name": "Pinterest", "url": "https://pinterest.com/reanty", "icon": "p" },
+    { "name": "LinkedIn", "url": "https://linkedin.com/company/reanty", "icon": "in" }
+  ],
+  "navigation": [
+    { "label": "Home", "href": "#home", "active": true },
+    { "label": "About", "href": "#about" },
+    { "label": "Feature", "href": "#properties" },
+    { "label": "Market", "href": "#projects" },
+    { "label": "Services", "href": "#services" },
+    { "label": "Contact", "href": "#contact" }
+  ],
   "hero": {
-    "headline": "Find the best Real Estate in your country.",
-    "subtext": "With over 1 million homes for sale on the website, Reanty can match you with the right house.",
-    "revenue": "$7,454.21"
+    "eyebrow": "Real Estate agency",
+    "headline": "Find the best Real Estate on your country .",
+    "description": "With over 1 million homes for sale available on the website, Renting can match you with a house.",
+    "ctaText": "Start membership",
+    "ctaHref": "#contact",
+    "revenue": "$7,454.21",
+    "revenueChange": "↗ 12.6% from last month"
   },
-  "guides": [
-    {
-      "title": "Seller Guides",
-      "description": "Get professionally written content that attracts qualified buyers."
-    },
-    {
-      "title": "Buyer Guides",
-      "description": "Nurture valuable leads into customers and repeat clients."
-    },
-    {
-      "title": "Renter Guides",
-      "description": "Find the right rental and move in with confidence."
-    }
-  ],
-  "services": [
-    "Bedrooms",
-    "Swimming pool",
-    "Listing content",
-    "Smart home",
-    "Library area",
-    "Responsive support"
-  ],
-  "properties": [
-    {
-      "name": "The Stokes Apartment",
-      "price": "$232,120",
-      "location": "Cleveland, OH",
-      "type": "Apartment"
-    },
-    {
-      "name": "Lakeview Villa",
-      "price": "$415,000",
-      "location": "Austin, TX",
-      "type": "Villa"
-    },
-    {
-      "name": "Maple Ridge Land",
-      "price": "$98,500",
-      "location": "Denver, CO",
-      "type": "Land"
-    }
-  ],
-  "unit": {
-    "number": "9A",
-    "price": "$4,000 / month",
-    "address": "242 Metric Way",
-    "bedrooms": 2,
-    "bathrooms": 2,
-    "area": "500 sqft"
+  "guides": {
+    "heading": "Commercial Real Estate And Office",
+    "description": "Work with Renting brokers who help you to get started with smart tools to.",
+    "items": [
+      {
+        "title": "Buyer Guides",
+        "description": "Nurture valuable leads into customers, and turn one time.",
+        "href": "#contact"
+      },
+      {
+        "title": "Renter Guides",
+        "description": "Build brand awareness on the top social media networks.",
+        "href": "#contact",
+        "highlight": true
+      },
+      {
+        "title": "Seller Guides",
+        "description": "Get professionally-written content that attracts qualified.",
+        "href": "#contact"
+      }
+    ]
   },
-  "testimonial": {
-    "quote": "Reanty found me a flat close to campus within a week. The process was clear, quick and surprisingly personal.",
-    "name": "Linh Tran",
-    "role": "Graduate Student",
+  "dreamLiving": {
+    "eyebrow": "Dream living space",
+    "title": "Dream Living Spaces Setting New Build",
+    "description": "SeaWire Web is a wireframe kit that has more than 15 popular categories and more than 200 screens",
+    "rating": "5 Star Rating",
+    "features": [
+      {
+        "title": "The perfect Rsidencye",
+        "description": "Take a deep dive and browse origin neighborhood photos."
+      },
+      {
+        "title": "Global Arhitect Experts",
+        "description": "Take a deep dive and browse origin neighborhood photos."
+      },
+      {
+        "title": "Built-in a storage capable",
+        "description": "Take a deep dive and browse origin neighborhood photos."
+      }
+    ]
+  },
+  "aboutHome": {
+    "eyebrow": "About home",
+    "title": "Today Sells Properties",
+    "description": "SeaWire Web is a wireframe kit that has more than 15 popular categories and more than 200 screens",
+    "checkpoints": [
+      "Live Music concert at Newyork",
+      "Our best boat Tour is j us t for you",
+      "Live Music concert at Newyork",
+      "Our best boat Tour is j us t for you",
+      "Live Music concert at Newyork"
+    ]
+  },
+  "services": {
+    "title": "Services provide for you",
+    "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.",
+    "items": [
+      {
+        "title": "Bed Rooms",
+        "description": "Desktop publishing software like aldus page maker including"
+      },
+      {
+        "title": "Swimming pool",
+        "description": "React creative agency amet, consec tetur adipiscing elit."
+      },
+      {
+        "title": "Copywriting content",
+        "description": "The standard chunk of used since the 1500s is reproduced"
+      },
+      {
+        "title": "Smart Home",
+        "description": "The standard chunk of used since the 1500s is reproduced"
+      },
+      {
+        "title": "Libarary area",
+        "description": "Desktop publishing software like aldus page maker including"
+      },
+      {
+        "title": "Responsive Duity",
+        "description": "React creative agency amet, consec tetur adipiscing elit."
+      }
+    ]
+  },
+  "testimonials": {
+    "heading": "What our customers are saying",
+    "description": "We make sure you have a fine distance with the sickness. We make you never lose hope.",
+    "quote": "We make sure you have a fine distance with the sickness. We make you never lose hope. We make sure you have with the sickness.",
+    "author": "Yunus Seyhan",
+    "role": "Postgraduate Student",
     "rating": 5
   },
-  "cities": ["San Francisco, California", "Washington DC", "Chicago"],
+  "projects": {
+    "title": "We build more projects successful",
+    "cities": [
+      "San Francisco, California",
+      "Washington DC",
+      "Chicago"
+    ]
+  },
   "blog": [
     {
-      "title": "How to rent a home very easily",
+      "title": "How to rent a home very easily?",
       "category": "Rentals",
-      "date": "2026-09-28"
+      "date": "3 years ago",
+      "author": "Mike Hesson",
+      "excerpt": "How to rent a home very easily in this pandemic situation. You can rent house through using our platfrom..."
     },
     {
-      "title": "5 things to check before buying",
-      "category": "Buying",
-      "date": "2026-09-15"
+      "title": "How to rent a home very easily?",
+      "category": "Rentals",
+      "date": "3 years ago",
+      "author": "Mike Hesson",
+      "excerpt": "How to rent a home very easily in this pandemic situation. You can rent house through using our platfrom..."
     },
     {
-      "title": "Staging your home for a faster sale",
-      "category": "Selling",
-      "date": "2026-09-02"
+      "title": "How to rent a home very easily?",
+      "category": "Rentals",
+      "date": "3 years ago",
+      "author": "Mike Hesson",
+      "excerpt": "How to rent a home very easily in this pandemic situation. You can rent house through using our platfrom..."
     }
   ],
-  "contact": {
-    "email": "hello@reanty.com",
-    "phone": "(123) 456-7890",
-    "address": "1112 A Market St, Suite B22, Charlottesville, CA 45565"
-  }
+  "copyright": "© 2026 Reanty. All rights reserved."
 }

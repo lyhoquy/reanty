@@ -1,9 +1,15 @@
 {
-  "ok": true,
-  "message": "Contact form endpoint ready for backend integration.",
-  "samplePayload": {
+  "status": "success",
+  "endpoint": "/data/contact.json",
+  "message": "Thank you for contacting Reanty. Your inquiry has been received.",
+  "schema": {
+    "name": "string (required)",
+    "email": "string (email, required)",
+    "message": "string (required)"
+  },
+  "sample": {
     "name": "Nguyen Van A",
     "email": "vana@example.com",
-    "message": "I'd like to schedule a viewing for the Stokes Apartment."
+    "message": "I would like to schedule a viewing for The Stokes Apartment."
   }
 }

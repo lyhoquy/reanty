@@ -1,0 +1,17 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="114" height="117" viewBox="0 0 114 117" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Ellipse 1823" filter="url(#filter0_d_0_131)">
+<circle cx="57" cy="30" r="30" fill="#FF5A3C"/>
+</g>
+<defs>
+<filter id="filter0_d_0_131" x="0" y="0" width="114" height="117" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="8" operator="erode" in="SourceAlpha" result="effect1_dropShadow_0_131"/>
+<feOffset dy="30"/>
+<feGaussianBlur stdDeviation="17.5"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.980392 0 0 0 0 0.701961 0 0 0 0 0.247059 0 0 0 0.15 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_131"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_131" result="shape"/>
+</filter>
+</defs>
+</svg>

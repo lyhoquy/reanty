@@ -1,0 +1,36 @@
+{
+  "preview": true,
+  "backendConnected": false,
+  "properties": [
+    {
+      "id": 1,
+      "title": "The Stokes Appartment",
+      "category": "Appartment",
+      "location": "Cleveland, United States",
+      "displayPrice": "$2,32,120"
+    },
+    {
+      "id": 2,
+      "title": "The Stokes Appartment",
+      "category": "Appartment",
+      "location": "Cleveland, United States",
+      "displayPrice": "$2,32,120"
+    },
+    {
+      "id": 3,
+      "title": "The Stokes Appartment",
+      "category": "Appartment",
+      "location": "Cleveland, United States",
+      "displayPrice": "$2,32,120"
+    }
+  ],
+  "featured": {
+    "price": 4000,
+    "address": "242 Metric way",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "area": "500sqf",
+    "unit": "9A"
+  },
+  "projects": ["San Francisco, California", "Washington DC", "Chicago"]
+}

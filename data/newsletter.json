@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "endpoint": "/data/newsletter.json",
+  "message": "Thank you for subscribing to Reanty newsletter. You will receive real estate market updates weekly.",
+  "schema": {
+    "email": "string (email, required)"
+  },
+  "sample": {
+    "email": "user@example.com",
+    "subscribedAt": "2026-10-07"
+  }
+}
