@@ -1,28 +1,94 @@
 /**
  * Reanty - Client-side Data Hydration & Interactions
  * Pure Vanilla JavaScript (No Framework)
- * Loads data dynamically from decoupled data/*.json files
+ * Integrates My JSON Server REST API with automatic Local Fallback
  */
+
+// Thay '<username>' bằng GitHub username của bạn khi deploy repo reanty-api
+const GITHUB_USERNAME = "lyhoquy";
+const API_BASE = `https://my-json-server.typicode.com/${GITHUB_USERNAME}/reanty-api`;
+
+const ENDPOINTS = {
+  site: `${API_BASE}/site`,
+  featured: `${API_BASE}/featured`,
+  stays: `${API_BASE}/stays`,
+  contact: `${API_BASE}/contact`,
+  newsletter: `${API_BASE}/newsletter`,
+};
+
+// Fallback khi API lỗi hoặc chạy offline
+const LOCAL = {
+  site: "./data/site.json",
+  featured: "./data/stays.json", // lấy key "featured"
+  stays: "./data/stays.json", // lấy key "properties"
+  contact: "./data/contact.json",
+  newsletter: "./data/newsletter.json",
+};
+
+async function getJSON(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+  return res.json();
+}
+
+async function loadData(key) {
+  try {
+    return await getJSON(ENDPOINTS[key]);
+  } catch (err) {
+    console.warn(
+      `API lỗi hoặc chưa deploy repo, dùng file local cho "${key}":`,
+      err.message || err
+    );
+    const local = await getJSON(LOCAL[key]);
+    if (key === "featured") return local.featured;
+    if (key === "stays") return local.properties || local.stays;
+    return local;
+  }
+}
+
+async function submitForm(type, payload) {
+  // type: 'contact' hoặc 'newsletter'
+  try {
+    const res = await fetch(ENDPOINTS[type], {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  } catch (err) {
+    console.warn(
+      "POST API lỗi (My JSON Server nhận phản hồi giả), vẫn lấy thông báo thành công:",
+      err.message || err
+    );
+  }
+  const info = await getJSON(LOCAL[type]);
+  return info.message || "Gửi thành công! Cảm ơn bạn.";
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Load properties / stays dynamically from data/stays.json
   const propertyGrid = document.querySelector(".property-grid");
   const propertyTabs = document.querySelectorAll(".property-types a");
   let allProperties = [];
 
-  async function loadStays() {
-    try {
-      const response = await fetch("./data/stays.json");
-      if (!response.ok) return;
-      const data = await response.json();
-      if (Array.isArray(data.properties) && data.properties.length > 0) {
-        allProperties = data.properties;
-        renderProperties(allProperties);
-      }
-    } catch (err) {
-      console.info("Using default markup for properties:", err);
+  // 1. Render & hydrate Featured Property banner (căn 9A Metric Way)
+  function renderFeatured(item) {
+    if (!item) return;
+    const floatingProperty = document.querySelector(".floating-property");
+    const unitBadge = document.querySelector(".unit strong");
+
+    if (floatingProperty) {
+      const priceEl = floatingProperty.querySelector("strong");
+      const addressEl = floatingProperty.querySelector("p");
+      if (priceEl && item.price) priceEl.textContent = item.price;
+      if (addressEl && item.address) addressEl.textContent = item.address;
+    }
+
+    if (unitBadge && item.unit) {
+      unitBadge.textContent = item.unit;
     }
   }
 
+  // 2. Render properties / stays grid
   function renderProperties(items) {
     if (!propertyGrid) return;
     propertyGrid.innerHTML = items
@@ -45,6 +111,26 @@ document.addEventListener("DOMContentLoaded", () => {
     `
       )
       .join("");
+  }
+
+  // Load and hydrate dynamic data
+  async function initData() {
+    try {
+      const [staysData, featuredData] = await Promise.all([
+        loadData("stays"),
+        loadData("featured"),
+      ]);
+
+      if (Array.isArray(staysData) && staysData.length > 0) {
+        allProperties = staysData;
+        renderProperties(allProperties);
+      }
+      if (featuredData) {
+        renderFeatured(featuredData);
+      }
+    } catch (err) {
+      console.info("Using default markup for properties:", err);
+    }
   }
 
   // Filter properties by category tabs
@@ -75,29 +161,71 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 2. Enhance Contact & Newsletter forms with asynchronous submission
+  // 3. Handle Contact & Newsletter forms submission
   const forms = document.querySelectorAll("form");
   forms.forEach((form) => {
     form.addEventListener("submit", async (e) => {
-      const action = form.getAttribute("action");
-      if (!action || !action.includes("./data/")) return;
-
       e.preventDefault();
+      const action = form.getAttribute("action") || "";
+      const isNewsletter =
+        form.classList.contains("subscribe") || action.includes("newsletter");
+      const formType = isNewsletter ? "newsletter" : "contact";
+
+      let payload = {};
+      if (formType === "contact") {
+        const name = form.querySelector("#contact-name")?.value?.trim() || "";
+        const email =
+          form.querySelector("#contact-email")?.value?.trim() || "";
+        const message =
+          form.querySelector("#contact-message")?.value?.trim() || "";
+
+        if (!name || !email || !message) {
+          alert("Vui lòng điền đầy đủ họ tên, email và lời nhắn.");
+          return;
+        }
+        payload = { name, email, message };
+      } else {
+        const emailInput = form.querySelector("input[type='email']");
+        const email = emailInput?.value?.trim() || "";
+        if (!email) {
+          alert("Vui lòng nhập địa chỉ email hợp lệ.");
+          return;
+        }
+        payload = {
+          email,
+          subscribedAt: new Date().toISOString().split("T")[0],
+        };
+      }
+
       try {
-        const res = await fetch(action);
-        const data = await res.json();
-        alert(data.message || "Gửi thành công! Cảm ơn bạn.");
+        const submitBtn = form.querySelector("button[type='submit']");
+        const originalText = submitBtn ? submitBtn.textContent : "";
+        if (submitBtn) submitBtn.textContent = "Sending...";
+
+        const successMessage = await submitForm(formType, payload);
+        alert(successMessage);
         form.reset();
-      } catch {
-        // Fallback to normal submission if fetch fails
-        form.submit();
+
+        if (submitBtn) submitBtn.textContent = originalText;
+      } catch (err) {
+        console.error("Lỗi khi gửi form:", err);
+        alert("Có lỗi xảy ra khi gửi. Vui lòng thử lại sau.");
       }
     });
   });
 
-  // 3. Dynamic ScrollSpy: Update active navigation tab according to scroll position
-  const navLinks = document.querySelectorAll(".desktop-nav a, .mobile-nav nav a");
-  const sectionIds = ["home", "about", "services", "properties", "projects", "contact"];
+  // 4. Dynamic ScrollSpy: Update active navigation tab according to scroll position
+  const navLinks = document.querySelectorAll(
+    ".desktop-nav a, .mobile-nav nav a"
+  );
+  const sectionIds = [
+    "home",
+    "about",
+    "services",
+    "properties",
+    "projects",
+    "contact",
+  ];
 
   function updateActiveNav() {
     const scrollPosition = window.scrollY + 140; // account for floating header height
@@ -162,6 +290,6 @@ document.addEventListener("DOMContentLoaded", () => {
     { passive: true }
   );
 
-  loadStays();
+  initData();
   updateActiveNav();
 });
