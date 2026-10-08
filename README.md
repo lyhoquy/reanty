@@ -1,60 +1,119 @@
-# Reanty — Real Estate Landing Page
+# Reanty – Real Estate Landing Page
 
-Dự án Landing Page bất động sản Reanty tuân thủ 100% các yêu cầu kỹ thuật nộp bài.
+Bài test vị trí **HTML Trainee**: dựng landing page bất động sản theo thiết kế Figma, bằng HTML, CSS và JavaScript thuần (không framework).
 
----
+## Link nộp bài
 
-## 1. Thông Tin Máy Chủ Thử Nghiệm & Data Server
+| Hạng mục | URL |
+|---|---|
+| Máy chủ thử nghiệm (website) | https://lyhoquy.github.io/`<repo-web>`/ |
+| Data server | https://my-json-server.typicode.com/lyhoquy/`<repo-api>` |
+| Source code website | https://github.com/lyhoquy/`<repo-web>` |
+| Source data server | https://github.com/lyhoquy/`<repo-api>` |
 
-Khi khởi chạy qua `python server.py`:
+### Các endpoint của data server
 
-- **URL máy chủ thử nghiệm (Website)**: [http://localhost:8000/](http://localhost:8000/)
-- **URL Data Server (Stays & Properties)**: [http://localhost:8000/data/stays.json](http://localhost:8000/data/stays.json)
-- **URL Data Server (Site Config & Content)**: [http://localhost:8000/data/site.json](http://localhost:8000/data/site.json)
-- **URL Data Server (Contact Endpoint)**: [http://localhost:8000/data/contact.json](http://localhost:8000/data/contact.json)
-- **URL Data Server (Newsletter Endpoint)**: [http://localhost:8000/data/newsletter.json](http://localhost:8000/data/newsletter.json)
+Tiền tố: `https://my-json-server.typicode.com/lyhoquy/<repo-api>`
 
----
+| Endpoint | Method | Mô tả |
+|---|---|---|
+| `/site` | GET | Nội dung trang (menu, hero, dịch vụ, blog...) |
+| `/featured` | GET | Căn hộ nổi bật (unit 9A) |
+| `/stays` | GET | Danh sách 3 bất động sản |
+| `/contact` | GET, POST | Form liên hệ |
+| `/newsletter` | GET, POST | Đăng ký nhận bản tin |
 
-## 2. Kiểm Tra Tiêu Chí Nộp Bài (Checklist)
+> **Lưu ý:** My JSON Server chỉ trả phản hồi giả lập cho POST, dữ liệu gửi lên **không được lưu**. Các endpoint GET trả dữ liệu từ `db.json`.
 
-| # | Tiêu chí yêu cầu | Trạng thái | Chi tiết triển khai |
-|---|---|---|---|
-| 1 | **Code thuần HTML và CSS, không dùng framework** | ✅ Đạt 100% | Chỉ sử dụng HTML5 semantic và Vanilla CSS3. Hoàn toàn không dùng React, Vue, Tailwind, Bootstrap hay bất kỳ thư viện hỗ trợ nào. |
-| 2 | **Đính kèm link URL máy chủ thử nghiệm & data server** | ✅ Đạt 100% | Website tại `http://localhost:8000/`, Data server tại `http://localhost:8000/data/stays.json`. |
-| 3 | **Web responsive (trên cả PC và SP)** | ✅ Đạt 100% | Đã thiết kế responsive đầy đủ từ Desktop lớn (> 1250px), Laptop (1000px – 1250px), Tablet (768px – 1000px) đến Smartphone (SP) (< 768px và < 360px). |
-| 4 | **Sử dụng đường dẫn tương đối trong source code** | ✅ Đạt 100% | Tất cả tài nguyên dùng đường dẫn tương đối: `./styles.css`, `./assets/`, `./fonts/`, `./data/`, `./app.js`. Không dùng đường dẫn tuyệt đối hay link ngoài. |
-| 5 | **Code gọn gàng, ít bug** | ✅ Đạt 100% | Cấu trúc semantic, phân chia module rõ ràng, không lỗi console, font chữ local không phụ thuộc mạng ngoài. |
-| 6 | **Dữ liệu tách riêng vào thư mục `data/`, không hardcode** | ✅ Đạt 100% | Toàn bộ dữ liệu nằm trong `data/`: `contact.json`, `newsletter.json`, `site.json`, `stays.json`. Script `app.js` (Vanilla JS) nạp dữ liệu động từ JSON và hỗ trợ lọc danh mục. |
+## Công nghệ
 
----
+- HTML5 (semantic)
+- CSS3 (Flexbox, Grid, responsive)
+- JavaScript thuần (`fetch`, async/await)
+- My JSON Server làm data server
+- GitHub Pages làm máy chủ thử nghiệm
 
-## 3. Cấu Trúc Thư Mục
+## Cấu trúc thư mục
 
-```
+```text
 reanty/
-├── index.html        # Trang giao diện chính (HTML5 semantic)
-├── styles.css        # CSS thuần, biến custom, chuẩn responsive PC & SP
-├── app.js            # Vanilla JS nạp data động từ JSON (không framework)
-├── server.py         # HTTP Server chuẩn Python phục vụ web & data endpoints
-├── data/             # Thư mục dữ liệu độc lập
-│   ├── stays.json        # Dữ liệu danh sách bất động sản, căn hộ mẫu
-│   ├── site.json         # Cấu hình website, thông tin thương hiệu, dịch vụ, blog
-│   ├── contact.json      # Endpoint và cấu trúc dữ liệu liên hệ
-│   └── newsletter.json   # Endpoint đăng ký nhận bản tin
-├── assets/           # Ảnh và biểu tượng SVG
-└── fonts/            # Bộ font local (Nunito, Poppins, Inter, Social)
+├── index.html
+├── app.js
+├── css/
+│   └── style.css
+├── assets/
+│   ├── house-card.jpg
+│   └── house-hero.jpg
+├── data/                 # dữ liệu dự phòng (fallback)
+│   ├── site.json
+│   ├── stays.json
+│   ├── contact.json
+│   └── newsletter.json
+└── README.md
 ```
 
----
+Repo data server (`<repo-api>`) chỉ cần một file `db.json` ở thư mục gốc.
 
-## 4. Hướng Dẫn Khởi Chạy
+## Cách hoạt động của dữ liệu
+
+1. Trang gọi `fetch()` tới data server để lấy nội dung và danh sách nhà.
+2. Nếu data server lỗi hoặc không phản hồi, trang tự đọc file local trong `./data/*.json`.
+3. Nếu cả hai đều lỗi, trang giữ nguyên nội dung HTML mặc định.
+4. Form liên hệ và newsletter:
+   - Kiểm tra dữ liệu bắt buộc và định dạng email ở phía client.
+   - Gửi `POST` tới endpoint tương ứng.
+   - Hiển thị thông báo cảm ơn.
+
+Đường dẫn trong source code đều là **đường dẫn tương đối** (`./css/...`, `./assets/...`, `./data/...`).
+
+## Chạy local
+
+Không mở `index.html` trực tiếp (`file:///`), vì trình duyệt chặn `fetch()`. Hãy chạy qua server tĩnh:
 
 ```bash
-# Trong thư mục dự án
-python server.py
+python -m http.server 8000
 ```
 
-Mở trình duyệt truy cập:
-- Giao diện: `http://localhost:8000/`
-- Data stays: `http://localhost:8000/data/stays.json`
+Mở `http://localhost:8000`.
+
+### Chạy data server local (tùy chọn)
+
+```bash
+npx json-server@0.17.4 --watch db.json --port 3000
+```
+
+Sau đó đổi `API_BASE` trong `app.js`:
+
+```js
+const API_BASE = 'http://localhost:3000';
+```
+
+Trước khi nộp, đổi lại thành:
+
+```js
+const API_BASE = 'https://my-json-server.typicode.com/lyhoquy/<repo-api>';
+```
+
+## Deploy
+
+**Website (GitHub Pages)**
+1. Push source lên repo `<repo-web>`.
+2. Vào **Settings → Pages**, chọn nhánh `main`, thư mục `/ (root)`.
+3. Mở link `https://lyhoquy.github.io/<repo-web>/`.
+
+**Data server (My JSON Server)**
+1. Tạo repo **public** `<repo-api>`.
+2. Đặt `db.json` ở thư mục gốc.
+3. Truy cập `https://my-json-server.typicode.com/lyhoquy/<repo-api>/stays` để kiểm tra.
+
+## Tính năng
+
+- Giao diện bám sát thiết kế Figma
+- Responsive: desktop và mobile
+- Nội dung trang và danh sách nhà nạp từ data server
+- Form liên hệ và newsletter có validate
+- Fallback dữ liệu local khi API lỗi
+
+## Tác giả
+
+- GitHub: https://github.com/lyhoquy
