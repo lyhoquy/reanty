@@ -2,7 +2,7 @@
 
 ## Demo
 
-YOUR_DEPLOYED_URL
+https://lyhoquy.github.io/reanty/
 
 ## Data Server
 
