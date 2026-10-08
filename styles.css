@@ -204,19 +204,35 @@ header {
 .top-contact {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 24px;
 }
 .top-contact a,
 .top-contact span {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
+  transition: color 0.2s;
+}
+.top-contact a:hover {
+  color: var(--accent);
+}
+.top-phone svg {
+  color: var(--accent);
+  flex-shrink: 0;
 }
 .social {
   display: flex;
+  align-items: center;
   gap: 18px;
   font-family: Social, sans-serif;
   font-size: 14px;
+}
+.social a {
+  transition: color 0.2s;
+}
+.social a:hover {
+  color: var(--accent);
 }
 .social a:nth-child(2) {
   color: var(--accent);
@@ -425,20 +441,26 @@ h1 {
   border-radius: 16px;
   text-align: center;
   padding: 36px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .guide-icon {
   position: relative;
   width: 72px;
   height: 72px;
   margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .guide-icon img {
   position: absolute;
-  left: -26px;
-  top: -14px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -40%) scale(0.85);
   max-width: none;
-  transform: scale(0.85);
-  transform-origin: center;
 }
 .guide-card h3 {
   margin-top: 24px;
@@ -580,37 +602,44 @@ h1 {
   background: #fff;
   text-align: center;
   padding: 32px 22px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .service-icon {
   width: 60px;
   height: 60px;
   position: relative;
   margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .service-icon img {
   position: absolute;
-  left: -28px;
-  top: -14px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -38.2%) scale(0.85);
   max-width: none;
-  transform: scale(0.85);
-  transform-origin: center;
 }
 .service-card h3 {
-  margin-top: 36px;
+  margin-top: 24px;
   font-size: 18px;
   letter-spacing: -0.4px;
 }
 .service-card p {
   font-size: 14px;
   line-height: 22px;
-  margin-top: 12px;
+  margin-top: 10px;
   color: #8c8c8c;
 }
 .service-card > a {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  margin-top: 20px;
+  margin-top: auto;
+  padding-top: 16px;
   font:
     500 14px Poppins,
     Arial,
@@ -696,18 +725,23 @@ h1 {
   margin-right: -18px;
 }
 .center-action {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 44px;
 }
 .property-banner {
   height: 360px;
   background: var(--placeholder);
   border-radius: 16px;
+  position: relative;
 }
 .property-banner > .container {
   position: relative;
   height: 100%;
-  padding-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .floating-property {
   display: flex;
@@ -715,8 +749,8 @@ h1 {
   gap: 20px;
   width: max-content;
   max-width: 100%;
-  margin-left: 120px;
-  padding: 14px;
+  margin-inline: auto;
+  padding: 14px 20px;
   border-radius: 16px;
   background: #fff;
   font-family: Poppins, Arial, sans-serif;
@@ -1282,7 +1316,7 @@ footer li {
     font-size: 17px;
   }
   .floating-property {
-    margin-left: 60px;
+    margin-inline: auto;
   }
   .testimonial-content {
     grid-template-columns: 240px 1fr;
@@ -1302,9 +1336,30 @@ footer li {
   .section-space {
     padding-block: 48px;
   }
-  .top-contact > span,
-  .social {
+  .topbar {
+    padding-block: 6px;
+  }
+  .topbar .wide {
+    min-height: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+  }
+  .top-contact {
+    justify-content: center;
+    gap: 14px;
+    font-size: 12px;
+  }
+  .top-address {
     display: none;
+  }
+  .social {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    font-size: 13px;
   }
   .navbar {
     gap: 12px;
@@ -1312,6 +1367,10 @@ footer li {
   }
   .logo {
     font-size: 24px;
+  }
+  .logo > img {
+    height: 34px;
+    left: -10px;
   }
   .account > a:first-child {
     display: none;
@@ -1358,10 +1417,10 @@ footer li {
     display: none;
   }
   .revenue {
-    width: 180px;
-    left: -8px;
-    padding: 16px;
-    bottom: -20px;
+    width: auto;
+    left: 12px;
+    padding: 12px 16px;
+    bottom: 12px;
   }
   .revenue strong {
     font-size: 18px;
@@ -1439,16 +1498,21 @@ footer li {
     margin-inline: auto;
   }
   .property-banner {
-    height: 300px;
+    height: 280px;
   }
   .property-banner > .container {
-    padding-top: 60px;
+    padding-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .floating-property {
-    margin-left: 0;
+    margin-inline: auto;
     gap: 12px;
-    padding: 10px;
+    padding: 12px 14px;
     border-radius: 12px;
+    width: auto;
+    max-width: calc(100% - 24px);
   }
   .property-thumbnail {
     width: 70px;
@@ -1465,8 +1529,8 @@ footer li {
     max-width: none;
   }
   .unit {
-    left: 0;
-    bottom: -35px;
+    left: 14px;
+    bottom: -28px;
     width: 76px;
     height: 76px;
   }
@@ -1484,7 +1548,9 @@ footer li {
   }
   .customer-picture {
     height: 280px;
-    margin-left: 14px;
+    margin-inline: auto;
+    max-width: 320px;
+    width: calc(100% - 28px);
     box-shadow: -14px 14px 0 var(--accent);
   }
   blockquote {
@@ -1543,6 +1609,8 @@ footer li {
   .footer-bottom {
     margin-top: 36px;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: 12px;
   }
   h2 {
@@ -1557,6 +1625,10 @@ footer li {
   }
 }
 @media (max-width: 359px) {
+  .top-contact {
+    flex-direction: column;
+    gap: 4px;
+  }
   .container,
   .wide {
     width: calc(100% - 24px);
@@ -1566,6 +1638,10 @@ footer li {
   }
   .logo {
     font-size: 20px;
+  }
+  .logo > img {
+    height: 28px;
+    left: -8px;
   }
   .account .button {
     padding-inline: 8px;
